@@ -169,7 +169,7 @@ const Main = () => {
             <>
               <p className="text-sm mb-2">
                 We pull the latest pages and comments from each space listed
-                below every <b>10</b> minutes.
+                below every <b>1</b> day.
               </p>
               <div className="mb-2">
                 <ConnectorsTable<ConfluenceConfig, ConfluenceCredentialJson>
@@ -240,7 +240,8 @@ const Main = () => {
               initialValues={{
                 wiki_page_url: "",
               }}
-              refreshFreq={10 * 60} // 10 minutes
+              // Change refresh frequency to 1 day
+              refreshFreq={1440 * 60}
               onSubmit={async (isSuccess, responseJson) => {
                 if (isSuccess && responseJson) {
                   await linkCredential(
